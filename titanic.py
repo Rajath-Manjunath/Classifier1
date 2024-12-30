@@ -50,13 +50,15 @@ with open('classifier.pkl', 'rb') as f:
 #    price = model.predict([input_car])[0]
 
 #    st.header(round(price,2))
-pclass = st.selectbox("Select the passenger class",["1st","2nd","3rd"])
-sex=st.selectbox("Select your gender",["Male","Female"])
+col1,col2,col3=st.columns(3)
+pclass = col1.selectbox("Select the passenger class",["1st","2nd","3rd"])
+sex=col2.selectbox("Select your gender",["Male","Female"])
 age=st.slider("Set your Age",10,100,step=1)
-SibSp=st.slider("Select how many siblings/spouse with you",1,5,step=1)
-parch=st.slider("Select how many parents/children with you",1,5,step=1)
+col4,col5=st.columns(2)
+SibSp=col4.slider("Select how many siblings/spouse with you",1,5,step=1)
+parch=col5.slider("Select how many parents/children with you",1,5,step=1)
 fare=st.slider("How much fare did you pay",0,550,step=50)
-embarked=st.selectbox("Where did you embark",["Cherbourg","Queenstown","Southampton"])
+embarked=col3.selectbox("Where did you embark",["Cherbourg","Queenstown","Southampton"])
 
 encode_dict = {
     "pclass": {'1st': 1, '2nd': 2, '3rd': 3},
